@@ -1,4 +1,5 @@
-const addBox = document.querySelector('.add-box'),
+const addBox = document.querySelector('.add-box');
+const searchBox = document.querySelector('.search-box');
 popupBox = document.querySelector('.popup-box'),
 popupTitle = popupBox.querySelector('header p'),
 closeIcon = document.querySelector('header i'),
@@ -12,7 +13,7 @@ const months= ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
 const notes = JSON.parse(localStorage.getItem('notes') || '[]');
 let isUpdate = false, updateId;
 
-function showNotes() {
+function showNotes(noteID) {
     document.querySelectorAll('.note').forEach(note => note.remove());
     notes.forEach((note, index)=>{
         let liEl=`<li class="note">
@@ -57,6 +58,8 @@ addBox.addEventListener('click', ()=>{
     titleEl.focus();
     popupBox.classList.add('show')
 });
+
+
 
 closeIcon.addEventListener('click', ()=>{
     isUpdate = false;
