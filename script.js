@@ -16,16 +16,32 @@ searchtitleEl = document.querySelector('input'),
 addBtn = document.querySelector('button ');
 searchBtn = document.querySelector('button ');
 
-console.log(searchcloseIcon);
-
 const months= ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
+
+// notes json file
 const notes = JSON.parse(localStorage.getItem('notes') || '[]');
+
 let isUpdate = false, updateId;
 
-
 // shows all the notes
-function showNotes(noteID) {
+function showNotes(noteID, index) {
+    if (noteID != null) {
+        let liEl=`<li class="note">
+                        <div class="details">
+                            <p>${note.title}</p>
+                            <span>${note.description}</span>
+                        </div>
+                        <div class="bottom-content">
+                            <span>${note.date}</span>
+                            <div class="settings">
+                                <i onClick="updateNote(${index}, '${note.title}', '${note.description}')"  class="uil uil-edit"></i>
+                                <i onClick="deleteNote(${index})" class="uil uil-trash"></i>
+                            </div>
+                        </div>
+                    </li>`;
+        addBox.insertAdjacentHTML('afterend', liEl);
+    }
     document.querySelectorAll('.note').forEach(note => note.remove());
     notes.forEach((note, index)=>{
         let liEl=`<li class="note">
@@ -47,8 +63,6 @@ function showNotes(noteID) {
 
 // function call to show notes
 showNotes();
-
-
 
 // function to delete the damn note
 function deleteNote(noteId) {
@@ -81,8 +95,7 @@ addBox.addEventListener('click', ()=>{
 
 // event handler for search
 searchBox.addEventListener('click', ()=>{
-    searchtitleEl.focus();
-    searchpopupBox.classList.add('show')
+    window.location.href = 'notes.html';
 });
 
 
@@ -139,33 +152,22 @@ addBtn.addEventListener('click', (e)=>{
 });
 
 
-// searchBtn.addEventListener('click', (e)=>{
-//     e.preventDefault();
-//     let noteTitle = titleEl.value,
-//     noteDesc = descEl.value;
-//     if (noteTitle || noteDesc) {
-//         let dateEl= new Date(),
-//         month = months[dateEl.getMonth()],
-//         day = dateEl.getDate(),
-//         year = dateEl.getFullYear();
+searchBtn.addEventListener('click', (e)=>{
+    let noteTitle = addtitleEl.value,
+    index = get_index(noteTitle);
+    if (index != -1) {
+        searchcloseIcon.click();
+        showNotes(null, index);
+    }
+});
 
 
-//         let noteInfo = {
-//             title: noteTitle,
-//             description: noteDesc,
-//             date: `${month} ${day} ${year}`
-//         }
-        
-//         if (!isUpdate) {
-//             notes.push(noteInfo);
-//         }else{
-//             isUpdate = false;
-//             notes[updateId] = noteInfo;
-//         }
-        
-//         localStorage.setItem('notes', JSON.stringify(notes));
-//         closeIcon.click();
-//         showNotes();
-//     }
-// });
+function get_index(title) {
+    for(let i=0; i<notes.length; i++) {
+        if (title == notes[i].title) {
+            return i;
+        }
+    }
+    return -1;
+}
 

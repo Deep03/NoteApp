@@ -1,0 +1,17 @@
+:root{
+    
+  --primaryColor:#0e153a;
+  --secondarycolor: #e2f3f5;
+  --primaryText: #3d5af1;
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+  background: var(--primaryColor);
+}
