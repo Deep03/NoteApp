@@ -4,6 +4,8 @@ const indexToShow = [];
 // const keys = Object.keys(notes[0]);
 // console.log(keys);
 
+const addBox = document.querySelector('.add-box');
+
 function get_index(title) {
   for (let i=0; i<notes.length; i++) {
     if (title == notes[i].title) {
@@ -27,10 +29,26 @@ function search() {
 
 function noteShow() {
   for (let i = 0; i < indexToShow.length; i++) {
-    let noteTitle = notes[indexToShow[i]].description;
-    console.log(noteTitle);
+    let noteTitle = notes[indexToShow[i]].title;
+    let noteDescription = notes[indexToShow[i]].description;
+    let noteDate = notes[indexToShow[i]].date;
+    let liEl = `<li class="note">
+      <div class="details">
+        <p>${noteTitle}</p>
+        <span>${noteDescription}</span>
+      </div>
+      <div class="bottom-content">
+        <span>${noteDate}</span>
+        <div class="settings">
+          <i onClick="updateNote(${indexToShow[i]}, '${noteTitle}', '${noteDescription}')" class="uil uil-edit"></i>
+          <i onClick="deleteNote(${indexToShow[i]})" class="uil uil-trash"></i>
+        </div>
+      </div>
+    </li>`;
+    addBox.insertAdjacentHTML('afterend', liEl);
   }
 }
+
 
 function showNotes(notetitle) {
   indexToShow.length = 0; // Clear the array before populating it again

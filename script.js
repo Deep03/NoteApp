@@ -21,7 +21,6 @@ const months= ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'A
 
 // notes json file
 const notes = JSON.parse(localStorage.getItem('notes') || '[]');
-
 let isUpdate = false, updateId;
 
 // shows all the notes

@@ -1,10 +1,8 @@
 :root{
-    
   --primaryColor:#0e153a;
   --secondarycolor: #e2f3f5;
   --primaryText: #3d5af1;
 }
-
 
 *{
   margin: 0;
@@ -12,6 +10,59 @@
   box-sizing: border-box;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 body{
   background: var(--primaryColor);
+}
+
+.add-box {
+  display: none;
+}
+.wrapper{
+  margin: 50px;
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(auto-fill, 265px);
+}
+
+.wrapper li{
+  height: 250px;
+  list-style: none;
+  background: var(--secondarycolor);
+  border-radius: 5px;
+  padding: 15px 20px 20px;
+}
+
+.icon, .bottom-content, .popup, header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.wrapper .note{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.note p{
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--primaryColor);
+}
+.note span{
+  display: block;
+  margin-top: 5px;
+  color: var(--primaryText);
+  font-size: 16px;
+}
+.bottom-content span{
+  color: var(--primaryText);
+  font-size: 14px;
+}
+.bottom-content .settings i{
+  color: var(--primaryText);
+  font-size: px;
+  cursor: pointer !important;
+  padding: 0 10px;
 }
