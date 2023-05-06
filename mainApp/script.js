@@ -78,7 +78,7 @@ addBox.addEventListener('click', ()=>{
 
 // event handler for search
 searchBox.addEventListener('click', ()=>{
-    window.open('show-notes.html');
+    window.open('page.html');
 });
 
 

@@ -13,6 +13,8 @@
 
 body{
   background: var(--primaryColor);
+  width: 400px;
+  height: 600px;
 }
 
 .add-box {
@@ -55,12 +57,16 @@ body{
   margin-top: 5px;
   color: var(--primaryText);
   font-size: 16px;
+  overflow-y: auto;
+  max-height: 150px;
 }
 .bottom-content span{
+  display: none;
   color: var(--primaryText);
   font-size: 14px;
 }
 .bottom-content .settings i{
+  display: none;
   color: var(--primaryText);
   font-size: px;
   cursor: pointer !important;

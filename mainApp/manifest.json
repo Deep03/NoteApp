@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "Note App",
+    "version": "0.9",
+    "description": "Simple Note Application",
+    "icons": {
+      "16": "noteapp.png",
+      "48": "noteapp.png",
+      "128": "noteapp.png"
+    },
+    "browser_action": {
+      "default_icon": "noteapp.png",
+      "default_title": "Note App",
+      "default_popup": "index.html"
+    },
+    "permissions": ["storage"]
+  }
+  
